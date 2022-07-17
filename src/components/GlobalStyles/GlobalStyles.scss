@@ -2,11 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap');
 
 :root {
+    --default-header-height: 60px;
+    --content-width: 1150px;
+    --sidebar-width: 356px;
+    --light-btn-color: rgba(167, 167, 171, 1);
+    --primary: rgba(254, 44, 85, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
     font-size: 62.5%;
-    box-sizing: border-box;
 }
 
 body {
@@ -14,4 +24,11 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
 }
