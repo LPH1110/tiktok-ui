@@ -25,8 +25,12 @@
     align-items: center;
 }
 
+.searchBar,
+.search-results {
+    width: var(--searchBar-width);
+}
+
 .searchBar {
-    width: 361px;
     height: 46px;
     background-color: rgba(241, 241, 242, 1);
     padding-left: 16px;
@@ -56,19 +60,15 @@
         color: rgba(22, 24, 35, 0.75);
     }
 
+    input:not(:placeholder-shown) ~ .clear-btn {
+        display: block;
+    }
+
     span {
         width: 1px;
         height: 60%;
         background-color: #ccc;
         margin: -3px 0;
-    }
-}
-
-.clear-btn {
-    color: var(--light-btn-color);
-
-    svg {
-        margin: 0 12px;
     }
 }
 
@@ -82,5 +82,22 @@
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
         cursor: pointer;
+    }
+}
+
+.search-title {
+    padding: 5px 12px;
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 500;
+    color: rgba(22, 24, 35, 0.5);
+}
+
+.clear-btn {
+    color: var(--light-btn-color);
+    display: none;
+
+    svg {
+        margin: 0 12px;
     }
 }

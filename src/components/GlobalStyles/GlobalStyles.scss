@@ -7,6 +7,9 @@
     --sidebar-width: 356px;
     --light-btn-color: rgba(167, 167, 171, 1);
     --primary: rgba(254, 44, 85, 1);
+    --searchBar-width: 361px;
+    --text-color: #50525a;
+    --white: rgba(255, 255, 255, 1);
 }
 
 * {
@@ -31,4 +34,8 @@ input,
 [tabindex] {
     outline: none;
     border: none;
+}
+
+a[href] {
+    text-decoration: none;
 }
