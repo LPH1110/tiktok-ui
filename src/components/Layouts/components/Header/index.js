@@ -3,6 +3,7 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
+import KeyItem from '~/components/KeyItem';
 import Button from '~/components/Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -31,10 +32,13 @@ function Header() {
                 {/* SEARCH BAR */}
                 <Tippy
                     interactive
-                    visible={searchResult.length > 0}
+                    visible
                     render={(attrs) => (
                         <div className={cx('search-results')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
+                                <KeyItem>hoa hướng dương</KeyItem>
+                                <KeyItem>hoa_2319</KeyItem>
+                                <KeyItem>hoa nguyễn</KeyItem>
                                 <h4 className={cx('search-title')}>Accounts</h4>
                                 <AccountItem />
                                 <AccountItem />
