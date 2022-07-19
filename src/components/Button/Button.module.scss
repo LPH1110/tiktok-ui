@@ -42,9 +42,10 @@
 }
 
 .icon {
-    display: inline-block;
+    display: inline-flex;
     width: 20px;
     text-align: center;
+    align-items: center;
 }
 
 .title {
