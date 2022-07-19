@@ -48,8 +48,13 @@
     }
 }
 
+.text {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 .outline {
-    color: var(--text-color);
     border-color: rgba(22, 24, 35, 0.12);
 
     &:hover {
