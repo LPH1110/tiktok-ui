@@ -5,18 +5,19 @@ import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Button({ to, href, type, onClick, size, children, disabled, leftIcon, rightIcon }) {
+function Button({ to, href, type, onClick, size, children, disabled, leftIcon, rightIcon, className, ...restProps }) {
     let Component = 'button';
     const props = {
         onClick,
     };
 
     const classes = cx('wrapper', {
+        [size]: size,
+        [className]: className,
         [type]: type,
         disabled,
-        leftIcon,
         rightIcon,
-        [size]: size,
+        leftIcon,
     });
 
     if (href) {
@@ -35,9 +36,9 @@ function Button({ to, href, type, onClick, size, children, disabled, leftIcon, r
     }
 
     return (
-        <Component className={classes} {...props}>
+        <Component className={classes} {...props} {...restProps}>
             {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
-            <span className={cx('title')}>{children}</span>
+            <p className={cx('title')}>{children}</p>
             {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
         </Component>
     );
