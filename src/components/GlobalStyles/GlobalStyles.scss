@@ -38,7 +38,33 @@ input,
     background-color: transparent;
 }
 
+button {
+    cursor: pointer;
+}
+
 a[href] {
     color: black;
     text-decoration: none;
+}
+
+// Tippy Customization
+body {
+    .tippy-box {
+        background-color: rgba(84, 84, 84, 0.92);
+        font-size: 1.3rem;
+        border-radius: 8px;
+        font-weight: 500;
+    }
+
+    .tippy-content {
+        padding: 8px 9px;
+    }
+
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+        top: -8px;
+    }
 }
