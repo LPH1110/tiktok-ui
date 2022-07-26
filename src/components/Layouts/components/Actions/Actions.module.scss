@@ -1,0 +1,40 @@
+// Actions
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+
+    img {
+        height: 100%;
+    }
+}
+
+.profile-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 24px;
+    cursor: pointer;
+}
+
+.message-btn {
+    padding: 3px;
+}
+
+.menu {
+    width: 28px;
+    min-height: 20px;
+    padding: 4px 6px;
+    margin-left: 16px;
+    font-weight: 400;
+    font-size: 1.6rem;
+    cursor: pointer;
+}

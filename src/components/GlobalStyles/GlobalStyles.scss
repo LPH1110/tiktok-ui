@@ -1,5 +1,4 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,300;0,400;0,500;1,300;1,400&display=swap');
 
 :root {
     --default-header-height: 60px;
@@ -24,8 +23,8 @@ html {
 }
 
 body {
-    font-family: 'IBM Plex Sans', sans-serif;
     font-size: 1.6rem;
+    font-family: ProximaNova, sans-serif;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
 }
@@ -67,4 +66,29 @@ body {
     .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
         top: -8px;
     }
+}
+
+// Fonts embeded
+@font-face {
+    font-family: ProximaNova;
+    src: url(../../assets/fonts/Proxima-Nova-Bold.woff2);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(../../assets/fonts/Proxima-Nova-Regular.woff2);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url(../../assets/fonts/Proxima-Nova-Semibold.woff2);
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: SofiaPro;
+    src: url(../../assets/fonts/sofiapro-bold.woff2);
+    font-weight: 700;
 }

@@ -33,6 +33,8 @@ function Button({ to, href, type, onClick, size, children, disabled, leftIcon, r
                 delete props[key];
             }
         });
+    } else {
+        props.type = 'button';
     }
 
     return (
