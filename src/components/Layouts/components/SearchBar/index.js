@@ -3,13 +3,15 @@ import KeyItem from '~/components/KeyItem';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './SearchBar.module.scss';
 
-import classNames from 'classnames/bind';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import HeadlessTippy from '@tippyjs/react/headless';
-import { useState, useEffect, useRef } from 'react';
+import classNames from 'classnames/bind';
+import { useEffect, useRef, useState } from 'react';
 import 'tippy.js/dist/tippy.css';
 import { ClearIcon, LoadingIcon } from '~/components/Icons';
+import useDebounce from '~/hooks/useDebounce';
+import * as searchService from '~/apiServices/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -19,6 +21,8 @@ function SearchBar() {
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
     const inputRef = useRef();
+
+    const debounced = useDebounce(searchValue, 600);
 
     const handleClearSearhValue = () => {
         setSearchValue('');
@@ -31,21 +35,24 @@ function SearchBar() {
     };
 
     useEffect(() => {
-        if (!searchValue.trim()) {
+        if (!debounced.trim()) {
             setSearchResult([]);
             return;
         }
 
-        setLoading(true);
+        const fetchApi = async () => {
+            setLoading(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setShowResult(true);
-                setLoading(false);
-            });
-    }, [searchValue]);
+            const result = await searchService.search(debounced);
+
+            setSearchResult(result);
+            setShowResult(true);
+
+            setLoading(false);
+        };
+
+        fetchApi();
+    }, [debounced]);
 
     return (
         <HeadlessTippy
