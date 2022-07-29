@@ -20,6 +20,11 @@
     }
 }
 
+.menu-body {
+    overflow: hidden auto;
+    max-height: inherit;
+}
+
 .menu-item {
     p {
         font-weight: 500;
@@ -37,6 +42,7 @@
     height: 50px;
     margin-top: -8px;
     position: relative;
+    flex-shrink: 0;
 }
 
 .back-btn {

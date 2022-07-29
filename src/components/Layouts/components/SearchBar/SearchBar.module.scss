@@ -4,6 +4,11 @@
     width: var(--searchBar-width);
 }
 
+.results {
+    overflow: hidden auto;
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+}
+
 .wrapper {
     height: 46px;
     background-color: rgba(241, 241, 242, 1);
@@ -25,9 +30,11 @@
     input {
         background: transparent;
         padding: 12px 0;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         flex: 1;
         caret-color: var(--primary);
+        font-family: var(--font-family);
+        font-weight: 500;
     }
 
     input:not(:placeholder-shown) ~ .search-btn {

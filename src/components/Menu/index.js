@@ -43,7 +43,7 @@ vào history và re-render lại menu là children
     ]
 */
 
-function Menu({ items, children, onChange }) {
+function Menu({ items, children, hideOnClick = false, onChange }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -72,6 +72,7 @@ function Menu({ items, children, onChange }) {
             delay={[0, 500]}
             offset={[12, 8]}
             placement="bottom-end"
+            hideOnClick={hideOnClick}
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
@@ -83,7 +84,7 @@ function Menu({ items, children, onChange }) {
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
