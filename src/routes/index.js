@@ -1,6 +1,6 @@
 import { Home, Following, Profile, Upload, Feedback, Coin, Setting } from '~/pages';
-import { DefaultLayout, HeaderOnly } from '~/components/Layouts';
-import routes from '~/config/routes';
+import { DefaultLayout, HeaderOnly } from '~/layouts';
+import { routes } from '~/config';
 
 const publicRoutes = [
     { path: routes.home, component: Home, layout: DefaultLayout },

@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 import 'tippy.js/dist/tippy.css';
 import { ClearIcon, LoadingIcon } from '~/components/Icons';
 import useDebounce from '~/hooks/useDebounce';
-import * as searchService from '~/apiServices/searchService';
+import { search as searchService } from '~/services';
 
 const cx = classNames.bind(styles);
 
@@ -48,14 +48,18 @@ function SearchBar() {
         }
 
         const fetchApi = async () => {
-            setLoading(true);
+            try {
+                setLoading(true);
 
-            const result = await searchService.search(debounced);
+                const result = await searchService(debounced);
 
-            setSearchResult(result);
-            setShowResult(true);
+                setSearchResult(result);
+                setShowResult(true);
 
-            setLoading(false);
+                setLoading(false);
+            } catch (e) {
+                console.log('Error in search bar when fetching API');
+            }
         };
 
         fetchApi();
